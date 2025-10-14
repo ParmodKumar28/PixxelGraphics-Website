@@ -1,1066 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Primary Meta Tags -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pixxel Graphicss - Premium Graphic Design Agency</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      :root {
-        --primary: #ff6b35;
-        --secondary: #f7931e;
-        --accent: #c71585;
-        --dark: #1a1a2e;
-        --darker: #0f0f1e;
-        --light: #eee;
-        --purple: #6c63ff;
-        --cyan: #00d9ff;
-        --pink: #ff2e63;
-      }
-
-      body {
-        font-family: "Inter", "Segoe UI", sans-serif;
-        background: var(--darker);
-        color: var(--light);
-        overflow-x: hidden;
-        line-height: 1.6;
-      }
-
-      /* Animated Background */
-      .animated-bg {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
-      }
-
-      .bg-shape {
-        position: absolute;
-        border-radius: 50%;
-        filter: blur(80px);
-        opacity: 0.15;
-        animation: morphing 20s ease-in-out infinite;
-      }
-
-      .shape1 {
-        width: 400px;
-        height: 400px;
-        background: var(--primary);
-        top: -100px;
-        left: -100px;
-        animation-delay: 0s;
-      }
-
-      .shape2 {
-        width: 500px;
-        height: 500px;
-        background: var(--purple);
-        bottom: -150px;
-        right: -150px;
-        animation-delay: 5s;
-      }
-
-      .shape3 {
-        width: 350px;
-        height: 350px;
-        background: var(--cyan);
-        top: 50%;
-        left: 50%;
-        animation-delay: 10s;
-      }
-
-      @keyframes morphing {
-        0%,
-        100% {
-          transform: translate(0, 0) scale(1);
-        }
-        33% {
-          transform: translate(50px, 100px) scale(1.2);
-        }
-        66% {
-          transform: translate(-80px, -50px) scale(0.9);
-        }
-      }
-
-      /* Navigation */
-      nav {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        background: rgba(26, 26, 46, 0.95);
-        backdrop-filter: blur(20px);
-        padding: 1.2rem 6%;
-        z-index: 1000;
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
-        transition: all 0.3s ease;
-      }
-
-      .nav-content {
-        max-width: 1400px;
-        margin: 0 auto;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-
-      .logo {
-        font-size: 2rem;
-        font-weight: 900;
-        letter-spacing: 2px;
-        background: linear-gradient(
-          135deg,
-          var(--primary),
-          var(--secondary),
-          var(--pink)
-        );
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        text-transform: uppercase;
-        position: relative;
-        cursor: pointer;
-        transition: transform 0.3s ease;
-        z-index: 1001;
-      }
-
-      .logo:hover {
-        transform: scale(1.05);
-      }
-
-      .logo::after {
-        content: "✦";
-        position: absolute;
-        top: -8px;
-        right: -15px;
-        font-size: 1rem;
-        color: var(--secondary);
-        animation: sparkle 2s ease-in-out infinite;
-      }
-
-      @keyframes sparkle {
-        0%,
-        100% {
-          opacity: 1;
-          transform: scale(1) rotate(0deg);
-        }
-        50% {
-          opacity: 0.5;
-          transform: scale(1.2) rotate(180deg);
-        }
-      }
-
-      .nav-links {
-        display: flex;
-        gap: 2.5rem;
-        list-style: none;
-        transition: all 0.3s ease;
-      }
-
-      .nav-links a {
-        color: var(--light);
-        text-decoration: none;
-        font-weight: 600;
-        font-size: 1rem;
-        position: relative;
-        transition: all 0.3s ease;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-      }
-
-      .nav-links a::before {
-        content: "";
-        position: absolute;
-        bottom: -5px;
-        left: 0;
-        width: 0;
-        height: 3px;
-        background: linear-gradient(90deg, var(--primary), var(--secondary));
-        transition: width 0.3s ease;
-        border-radius: 2px;
-      }
-
-      .nav-links a:hover::before {
-        width: 100%;
-      }
-
-      .nav-links a:hover {
-        color: var(--secondary);
-      }
-
-      /* Hamburger Menu */
-      .hamburger {
-        display: none;
-        flex-direction: column;
-        cursor: pointer;
-        z-index: 1001;
-        padding: 5px;
-      }
-
-      .hamburger span {
-        width: 30px;
-        height: 3px;
-        background: linear-gradient(135deg, var(--primary), var(--secondary));
-        margin: 4px 0;
-        transition: all 0.3s ease;
-        border-radius: 3px;
-      }
-
-      .hamburger.active span:nth-child(1) {
-        transform: rotate(45deg) translate(10px, 10px);
-      }
-
-      .hamburger.active span:nth-child(2) {
-        opacity: 0;
-      }
-
-      .hamburger.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(8px, -8px);
-      }
-
-      /* Hero Section */
-      .hero {
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0 6%;
-        position: relative;
-      }
-
-      .hero-content {
-        max-width: 1400px;
-        text-align: center;
-        z-index: 2;
-        padding-top: 80px;
-      }
-
-      .hero h1 {
-        font-size: 5.5rem;
-        font-weight: 900;
-        line-height: 1.1;
-        margin-bottom: 1.5rem;
-        background: linear-gradient(
-          135deg,
-          var(--primary),
-          var(--secondary),
-          var(--pink)
-        );
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        animation: fadeInDown 1s ease;
-        text-transform: uppercase;
-        letter-spacing: 3px;
-      }
-
-      .hero p {
-        font-size: 1.5rem;
-        color: var(--light);
-        margin-bottom: 2.5rem;
-        opacity: 0.9;
-        animation: fadeInUp 1s ease 0.3s backwards;
-      }
-
-      .hero-cta {
-        display: flex;
-        gap: 1.5rem;
-        justify-content: center;
-        animation: fadeInUp 1s ease 0.6s backwards;
-        flex-wrap: wrap;
-      }
-
-      .btn {
-        padding: 1.2rem 3rem;
-        border-radius: 50px;
-        font-weight: 700;
-        text-decoration: none;
-        text-transform: uppercase;
-        letter-spacing: 1.5px;
-        transition: all 0.4s ease;
-        position: relative;
-        overflow: hidden;
-        font-size: 1rem;
-        cursor: pointer;
-        border: none;
-      }
-
-      .btn-primary {
-        background: linear-gradient(135deg, var(--primary), var(--secondary));
-        color: white;
-        box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
-      }
-
-      .btn-primary::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(135deg, var(--pink), var(--accent));
-        transition: left 0.4s ease;
-        z-index: -1;
-      }
-
-      .btn-primary:hover::before {
-        left: 0;
-      }
-
-      .btn-primary:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 15px 40px rgba(255, 107, 53, 0.5);
-      }
-
-      .btn-secondary {
-        background: transparent;
-        color: var(--light);
-        border: 3px solid var(--primary);
-      }
-
-      .btn-secondary:hover {
-        background: var(--primary);
-        transform: translateY(-3px);
-        box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
-      }
-
-      /* Floating Elements */
-      .floating-icons {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        pointer-events: none;
-      }
-
-      .float-icon {
-        position: absolute;
-        font-size: 3rem;
-        opacity: 0.1;
-        animation: float 15s ease-in-out infinite;
-      }
-
-      .icon1 {
-        top: 15%;
-        left: 10%;
-        animation-delay: 0s;
-      }
-      .icon2 {
-        top: 70%;
-        right: 15%;
-        animation-delay: 3s;
-      }
-      .icon3 {
-        bottom: 20%;
-        left: 20%;
-        animation-delay: 6s;
-      }
-      .icon4 {
-        top: 40%;
-        right: 25%;
-        animation-delay: 9s;
-      }
-
-      @keyframes float {
-        0%,
-        100% {
-          transform: translateY(0) rotate(0deg);
-        }
-        50% {
-          transform: translateY(-30px) rotate(180deg);
-        }
-      }
-
-      /* Section Styling */
-      .section {
-        padding: 6rem 6%;
-        position: relative;
-      }
-
-      .section-title {
-        font-size: 3.5rem;
-        font-weight: 900;
-        text-align: center;
-        margin-bottom: 1rem;
-        text-transform: uppercase;
-        letter-spacing: 3px;
-        position: relative;
-        display: inline-block;
-        width: 100%;
-      }
-
-      .section-title span {
-        background: linear-gradient(135deg, var(--primary), var(--pink));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
-
-      .section-subtitle {
-        text-align: center;
-        font-size: 1.2rem;
-        color: var(--light);
-        opacity: 0.8;
-        margin-bottom: 4rem;
-      }
-
-      /* Services Grid */
-      .services-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 2.5rem;
-        max-width: 1400px;
-        margin: 0 auto;
-      }
-
-      .service-card {
-        background: linear-gradient(
-          135deg,
-          rgba(255, 107, 53, 0.05),
-          rgba(108, 99, 255, 0.05)
-        );
-        border: 2px solid rgba(255, 107, 53, 0.2);
-        border-radius: 20px;
-        padding: 2.5rem;
-        text-align: center;
-        transition: all 0.4s ease;
-        cursor: pointer;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .service-card::before {
-        content: "";
-        position: absolute;
-        top: -50%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background: linear-gradient(
-          45deg,
-          transparent,
-          rgba(255, 107, 53, 0.1),
-          transparent
-        );
-        transform: rotate(45deg);
-        transition: all 0.6s ease;
-      }
-
-      .service-card:hover::before {
-        left: 100%;
-      }
-
-      .service-card:hover {
-        transform: translateY(-10px);
-        border-color: var(--primary);
-        box-shadow: 0 20px 50px rgba(255, 107, 53, 0.3);
-      }
-
-      .service-icon {
-        font-size: 4rem;
-        margin-bottom: 1.5rem;
-        display: inline-block;
-        transition: transform 0.4s ease;
-      }
-
-      .service-card:hover .service-icon {
-        transform: scale(1.2) rotate(10deg);
-      }
-
-      .service-card h3 {
-        font-size: 1.5rem;
-        margin-bottom: 1rem;
-        color: var(--light);
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-      }
-
-      .service-card p {
-        color: var(--light);
-        opacity: 0.8;
-        margin-bottom: 1.5rem;
-        line-height: 1.6;
-      }
-
-      .price {
-        font-size: 2rem;
-        font-weight: 900;
-        background: linear-gradient(135deg, var(--primary), var(--secondary));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        margin-bottom: 1rem;
-      }
-
-      .price-note {
-        font-size: 0.85rem;
-        color: var(--light);
-        opacity: 0.6;
-      }
-
-      /* Portfolio Gallery */
-      .portfolio-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-        max-width: 1400px;
-        margin: 0 auto;
-      }
-
-      .portfolio-item {
-        position: relative;
-        border-radius: 20px;
-        overflow: hidden;
-        cursor: pointer;
-        aspect-ratio: 4/3;
-        background: linear-gradient(135deg, var(--dark), var(--darker));
-      }
-
-      .portfolio-img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.5s ease;
-        background: linear-gradient(135deg, var(--primary), var(--purple));
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 5rem;
-      }
-
-      .portfolio-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(
-          135deg,
-          rgba(255, 107, 53, 0.9),
-          rgba(199, 21, 133, 0.9)
-        );
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        opacity: 0;
-        transition: opacity 0.4s ease;
-        padding: 2rem;
-      }
-
-      .portfolio-item:hover .portfolio-overlay {
-        opacity: 1;
-      }
-
-      .portfolio-item:hover .portfolio-img {
-        transform: scale(1.1);
-      }
-
-      .portfolio-overlay h3 {
-        font-size: 1.8rem;
-        margin-bottom: 1rem;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-      }
-
-      .portfolio-overlay p {
-        font-size: 1rem;
-        text-align: center;
-      }
-
-      /* Testimonials */
-      .testimonials-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2.5rem;
-      }
-
-      .testimonial-card {
-        background: rgba(255, 255, 255, 0.05);
-        backdrop-filter: blur(10px);
-        border: 2px solid rgba(255, 107, 53, 0.2);
-        border-radius: 20px;
-        padding: 2.5rem;
-        position: relative;
-        transition: all 0.3s ease;
-      }
-
-      .testimonial-card::before {
-        content: '"';
-        position: absolute;
-        top: -20px;
-        left: 30px;
-        font-size: 8rem;
-        color: var(--primary);
-        opacity: 0.2;
-        font-family: Georgia, serif;
-      }
-
-      .testimonial-card:hover {
-        transform: translateY(-5px);
-        border-color: var(--primary);
-        box-shadow: 0 15px 40px rgba(255, 107, 53, 0.2);
-      }
-
-      .stars {
-        color: var(--secondary);
-        font-size: 1.5rem;
-        margin-bottom: 1rem;
-      }
-
-      .testimonial-text {
-        font-size: 1.1rem;
-        line-height: 1.8;
-        margin-bottom: 1.5rem;
-        color: var(--light);
-        opacity: 0.9;
-      }
-
-      .client-info {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-      }
-
-      .client-avatar {
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        background: linear-gradient(135deg, var(--primary), var(--secondary));
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.5rem;
-        font-weight: bold;
-      }
-
-      .client-details h4 {
-        font-size: 1.2rem;
-        margin-bottom: 0.3rem;
-        color: var(--light);
-      }
-
-      .client-details p {
-        font-size: 0.9rem;
-        color: var(--light);
-        opacity: 0.7;
-      }
-
-      /* Contact Section */
-      .contact-container {
-        max-width: 800px;
-        margin: 0 auto;
-        background: rgba(255, 255, 255, 0.05);
-        backdrop-filter: blur(10px);
-        border: 2px solid rgba(255, 107, 53, 0.2);
-        border-radius: 30px;
-        padding: 3.5rem;
-      }
-
-      .form-group {
-        margin-bottom: 2rem;
-      }
-
-      .form-group label {
-        display: block;
-        margin-bottom: 0.8rem;
-        font-weight: 600;
-        font-size: 1.1rem;
-        color: var(--light);
-        text-transform: uppercase;
-        letter-spacing: 1px;
-      }
-
-      .form-group input,
-      .form-group textarea,
-      .form-group select {
-        width: 100%;
-        padding: 1.2rem;
-        background: rgba(255, 255, 255, 0.05);
-        border: 2px solid rgba(255, 107, 53, 0.3);
-        border-radius: 15px;
-        color: var(--light);
-        font-size: 1rem;
-        transition: all 0.3s ease;
-      }
-
-      .form-group input:focus,
-      .form-group textarea:focus,
-      .form-group select:focus {
-        outline: none;
-        border-color: var(--primary);
-        background: rgba(255, 255, 255, 0.08);
-        box-shadow: 0 0 20px rgba(255, 107, 53, 0.2);
-      }
-
-      .form-group textarea {
-        resize: vertical;
-        min-height: 150px;
-      }
-
-      /* Footer */
-      footer {
-        background: var(--dark);
-        padding: 4rem 6%;
-        text-align: center;
-        border-top: 3px solid rgba(255, 107, 53, 0.3);
-      }
-
-      .footer-content {
-        max-width: 1400px;
-        margin: 0 auto;
-      }
-
-      .social-links {
-        display: flex;
-        justify-content: center;
-        gap: 2rem;
-        margin-bottom: 2rem;
-        flex-wrap: wrap;
-      }
-
-      .social-icon {
-        width: 60px;
-        height: 60px;
-        background: linear-gradient(135deg, var(--primary), var(--secondary));
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.8rem;
-        color: white;
-        transition: all 0.3s ease;
-        text-decoration: none;
-      }
-
-      .social-icon:hover {
-        transform: translateY(-5px) rotate(360deg);
-        box-shadow: 0 10px 30px rgba(255, 107, 53, 0.5);
-      }
-
-      .footer-text {
-        font-size: 1.1rem;
-        color: var(--light);
-        opacity: 0.8;
-      }
-
-      /* Animations */
-      @keyframes fadeInDown {
-        from {
-          opacity: 0;
-          transform: translateY(-50px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(50px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      /* Scroll Animation */
-      .fade-in {
-        opacity: 0;
-        transform: translateY(50px);
-        transition: all 0.8s ease;
-      }
-
-      .fade-in.visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      /* Category Filter */
-      .filter-buttons {
-        display: flex;
-        justify-content: center;
-        gap: 1rem;
-        margin-bottom: 3rem;
-        flex-wrap: wrap;
-      }
-
-      .filter-btn {
-        padding: 0.8rem 2rem;
-        background: rgba(255, 255, 255, 0.05);
-        border: 2px solid rgba(255, 107, 53, 0.3);
-        border-radius: 50px;
-        color: var(--light);
-        cursor: pointer;
-        transition: all 0.3s ease;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-      }
-
-      .filter-btn:hover,
-      .filter-btn.active {
-        background: linear-gradient(135deg, var(--primary), var(--secondary));
-        border-color: var(--primary);
-        transform: translateY(-3px);
-        box-shadow: 0 5px 20px rgba(255, 107, 53, 0.4);
-      }
-
-      /* Responsive Design */
-      @media (max-width: 1024px) {
-        .hero h1 {
-          font-size: 4rem;
-        }
-
-        .section-title {
-          font-size: 3rem;
-        }
-
-        .services-grid,
-        .portfolio-grid,
-        .testimonials-container {
-          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        }
-      }
-
-      @media (max-width: 768px) {
-        /* Hamburger Menu Show */
-        .hamburger {
-          display: flex;
-        }
-
-        .nav-links {
-          position: fixed;
-          top: 0;
-          right: -100%;
-          height: 100vh;
-          width: 70%;
-          max-width: 350px;
-          background: rgba(26, 26, 46, 0.98);
-          backdrop-filter: blur(20px);
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          gap: 2rem;
-          transition: right 0.4s ease;
-          box-shadow: -5px 0 30px rgba(0, 0, 0, 0.5);
-          padding: 2rem;
-        }
-
-        .nav-links.active {
-          right: 0;
-        }
-
-        .nav-links li {
-          opacity: 0;
-          transform: translateX(50px);
-          transition: all 0.4s ease;
-        }
-
-        .nav-links.active li {
-          opacity: 1;
-          transform: translateX(0);
-        }
-
-        .nav-links.active li:nth-child(1) {
-          transition-delay: 0.1s;
-        }
-        .nav-links.active li:nth-child(2) {
-          transition-delay: 0.2s;
-        }
-        .nav-links.active li:nth-child(3) {
-          transition-delay: 0.3s;
-        }
-        .nav-links.active li:nth-child(4) {
-          transition-delay: 0.4s;
-        }
-        .nav-links.active li:nth-child(5) {
-          transition-delay: 0.5s;
-        }
-
-        .nav-links a {
-          font-size: 1.3rem;
-        }
-
-        .logo {
-          font-size: 1.5rem;
-        }
-
-        .hero h1 {
-          font-size: 2.5rem;
-          letter-spacing: 1px;
-        }
-
-        .hero p {
-          font-size: 1.1rem;
-        }
-
-        .hero-cta {
-          flex-direction: column;
-          align-items: center;
-        }
-
-        .btn {
-          width: 100%;
-          max-width: 280px;
-          padding: 1rem 2rem;
-          font-size: 0.9rem;
-        }
-
-        .section {
-          padding: 4rem 5%;
-        }
-
-        .section-title {
-          font-size: 2.2rem;
-        }
-
-        .section-subtitle {
-          font-size: 1rem;
-        }
-
-        .services-grid {
-          grid-template-columns: 1fr;
-          gap: 2rem;
-        }
-
-        .service-card {
-          padding: 2rem;
-        }
-
-        .service-card h3 {
-          font-size: 1.3rem;
-        }
-
-        .price {
-          font-size: 1.8rem;
-        }
-
-        .portfolio-grid {
-          grid-template-columns: 1fr;
-          gap: 1.5rem;
-        }
-
-        .portfolio-overlay h3 {
-          font-size: 1.5rem;
-        }
-
-        .testimonials-container {
-          grid-template-columns: 1fr;
-        }
-
-        .testimonial-card {
-          padding: 2rem;
-        }
-
-        .testimonial-text {
-          font-size: 1rem;
-        }
-
-        .contact-container {
-          padding: 2.5rem 2rem;
-        }
-
-        .form-group label {
-          font-size: 1rem;
-        }
-
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-          padding: 1rem;
-          font-size: 0.95rem;
-        }
-
-        .filter-buttons {
-          gap: 0.5rem;
-        }
-
-        .filter-btn {
-          padding: 0.6rem 1.5rem;
-          font-size: 0.85rem;
-        }
-
-        .float-icon {
-          font-size: 2rem;
-        }
-
-        .social-icon {
-          width: 50px;
-          height: 50px;
-          font-size: 1.5rem;
-        }
-      }
-
-      @media (max-width: 480px) {
-        nav {
-          padding: 1rem 5%;
-        }
-
-        .logo {
-          font-size: 1.3rem;
-        }
-
-        .hero h1 {
-          font-size: 2rem;
-        }
-
-        .hero p {
-          font-size: 1rem;
-        }
-
-        .section-title {
-          font-size: 1.8rem;
-        }
-
-        .service-icon {
-          font-size: 3rem;
-        }
-
-        .portfolio-img {
-          font-size: 3.5rem;
-        }
-
-        .contact-container {
-          padding: 2rem 1.5rem;
-        }
-
-        .testimonial-card::before {
-          font-size: 5rem;
-          left: 20px;
-        }
-      }
-
-      /* Overlay for mobile menu */
-      .overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.7);
-        z-index: 999;
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s ease;
-      }
-
-      .overlay.active {
-        opacity: 1;
-        visibility: visible;
-      }
-    </style>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- SEO Meta Tags -->
+    <title>
+      Pixxel Graphic - Professional Graphic Design Agency | Logo, Brochure &
+      Social Media Design
+    </title>
+    <meta
+      name="description"
+      content="Pixxel Graphicss offers premium graphic design services including logo design, brochure design, social media creatives, business cards, and more. Transform your brand with creative design solutions."
+    />
+    <meta
+      name="keywords"
+      content="graphic design, logo design, brochure design, social media creatives, business card design, t-shirt design, letterhead design, standee design, pamphlet design, certificate design"
+    />
+    <meta name="author" content="Pixxel Graphicss" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="English" />
+    <meta name="revisit-after" content="7 days" />
+
+    <!-- Open Graph Meta Tags (Social Media) -->
+    <meta
+      property="og:title"
+      content="Pixxel Graphicss - Professional Graphic Design Agency"
+    />
+    <meta
+      property="og:description"
+      content="Transform your brand with professional graphic design services. Specializing in logos, brochures, social media creatives, and more."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.pixxelgraphicss.com" />
+    <meta
+      property="og:image"
+      content="https://www.pixxelgraphicss.com/assets/images/og-image.jpg"
+    />
+    <meta property="og:site_name" content="Pixxel Graphicss" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Pixxel Graphicss - Professional Graphic Design Agency"
+    />
+    <meta
+      name="twitter:description"
+      content="Transform your brand with professional graphic design services."
+    />
+    <meta
+      name="twitter:image"
+      content="https://www.pixxelgraphicss.com/assets/images/twitter-image.jpg"
+    />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.pixxelgraphicss.com" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
+
+    <!-- Schema.org Markup (JSON-LD) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Pixxel Graphicss",
+        "description": "Professional graphic design agency offering logo design, brochure design, social media creatives, and comprehensive branding solutions",
+        "url": "https://www.pixxelgraphicss.com",
+        "logo": "https://www.pixxelgraphicss.com/assets/images/logo.png",
+        "image": "https://www.pixxelgraphicss.com/assets/images/hero-image.jpg",
+        "priceRange": "₹799 - ₹4999+",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "IN"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5",
+          "reviewCount": "150"
+        },
+        "sameAs": [
+          "https://www.facebook.com/pixxelgraphicss",
+          "https://www.instagram.com/pixxelgraphicss",
+          "https://www.linkedin.com/company/pixxelgraphicss"
+        ]
+      }
+    </script>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
   </head>
   <body>
     <!-- Overlay for mobile menu -->
@@ -1074,23 +112,26 @@
     </div>
 
     <!-- Navigation -->
-    <nav>
+    <nav role="navigation" aria-label="Main navigation">
       <div class="nav-content">
-        <div class="logo">Pixxel Graphicss</div>
-
-        <!-- Hamburger Menu -->
-        <div class="hamburger" id="hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
+        <div class="logo" itemscope itemtype="https://schema.org/Organization">
+          <span itemprop="name">Pixxel Graphic</span>
         </div>
 
+        <!-- Hamburger Menu -->
+        <button
+          class="hamburger"
+          id="hamburger"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
         <ul class="nav-links" id="navLinks">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#testimonials">Reviews</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <!-- Navigation items will be injected via JavaScript -->
         </ul>
       </div>
     </nav>
@@ -1098,17 +139,50 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
       <div class="floating-icons">
-        <div class="float-icon icon1">🎨</div>
-        <div class="float-icon icon2">✏️</div>
-        <div class="float-icon icon3">🖌️</div>
-        <div class="float-icon icon4">💡</div>
+        <div class="float-icon icon1" aria-hidden="true">🎨</div>
+        <div class="float-icon icon2" aria-hidden="true">✏️</div>
+        <div class="float-icon icon3" aria-hidden="true">🖌️</div>
+        <div class="float-icon icon4" aria-hidden="true">💡</div>
       </div>
       <div class="hero-content">
         <h1>Creative Design Solutions</h1>
         <p>Transform Your Brand with Professional Graphic Design Services</p>
         <div class="hero-cta">
-          <a href="#services" class="btn btn-primary">Explore Services</a>
-          <a href="#portfolio" class="btn btn-secondary">View Portfolio</a>
+          <a
+            href="#services"
+            class="btn btn-primary"
+            aria-label="Explore our design services"
+            >Explore Services</a
+          >
+          <a
+            href="#portfolio"
+            class="btn btn-secondary"
+            aria-label="View our portfolio"
+            >View Portfolio</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="section" id="about">
+      <h2 class="section-title">About <span>Us</span></h2>
+      <p class="section-subtitle" id="aboutSubtitle"></p>
+
+      <div class="about-content">
+        <div class="about-text fade-in">
+          <p class="about-description" id="aboutDescription"></p>
+          <p class="about-mission" id="aboutMission"></p>
+        </div>
+
+        <!-- Stats Section -->
+        <div class="stats-grid" id="statsGrid">
+          <!-- Stats will be injected via JavaScript -->
+        </div>
+
+        <!-- Team Features -->
+        <div class="team-features-grid" id="teamFeaturesGrid">
+          <!-- Team features will be injected via JavaScript -->
         </div>
       </div>
     </section>
@@ -1120,104 +194,8 @@
         Premium Design Solutions Tailored for Your Business
       </p>
 
-      <div class="services-grid">
-        <div class="service-card fade-in">
-          <div class="service-icon">🏷️</div>
-          <h3>Logo Design</h3>
-          <p>
-            Unique, memorable logos that perfectly represent your brand identity
-          </p>
-          <div class="price">₹2,999+</div>
-          <p class="price-note">Starting from</p>
-        </div>
-
-        <div class="service-card fade-in">
-          <div class="service-icon">📄</div>
-          <h3>Letterhead Design</h3>
-          <p>Professional letterheads for impactful business correspondence</p>
-          <div class="price">₹1,499+</div>
-          <p class="price-note">Starting from</p>
-        </div>
-
-        <div class="service-card fade-in">
-          <div class="service-icon">📖</div>
-          <h3>Brochure Design</h3>
-          <p>Eye-catching brochures that tell your brand story effectively</p>
-          <div class="price">₹3,499+</div>
-          <p class="price-note">Starting from</p>
-        </div>
-
-        <div class="service-card fade-in">
-          <div class="service-icon">🪧</div>
-          <h3>Standee Design</h3>
-          <p>Attention-grabbing standees for events and promotions</p>
-          <div class="price">₹2,499+</div>
-          <p class="price-note">Starting from</p>
-        </div>
-
-        <div class="service-card fade-in">
-          <div class="service-icon">📚</div>
-          <h3>Bookplate Design</h3>
-          <p>Elegant bookplates with personalized designs</p>
-          <div class="price">₹999+</div>
-          <p class="price-note">Starting from</p>
-        </div>
-
-        <div class="service-card fade-in">
-          <div class="service-icon">📰</div>
-          <h3>Pamphlet Design</h3>
-          <p>Compelling pamphlets for marketing and information sharing</p>
-          <div class="price">₹1,999+</div>
-          <p class="price-note">Starting from</p>
-        </div>
-
-        <div class="service-card fade-in">
-          <div class="service-icon">📱</div>
-          <h3>App Templates</h3>
-          <p>Modern UI/UX templates for mobile applications</p>
-          <div class="price">₹4,999+</div>
-          <p class="price-note">Starting from</p>
-        </div>
-
-        <div class="service-card fade-in">
-          <div class="service-icon">🏆</div>
-          <h3>Certificate Design</h3>
-          <p>Professional certificates for awards and achievements</p>
-          <div class="price">₹1,499+</div>
-          <p class="price-note">Starting from</p>
-        </div>
-
-        <div class="service-card fade-in">
-          <div class="service-icon">🛍️</div>
-          <h3>Bag Design</h3>
-          <p>Custom shopping bag designs that enhance brand visibility</p>
-          <div class="price">₹2,999+</div>
-          <p class="price-note">Starting from</p>
-        </div>
-
-        <div class="service-card fade-in">
-          <div class="service-icon">💳</div>
-          <h3>Business Card</h3>
-          <p>Sleek business cards that make lasting first impressions</p>
-          <div class="price">₹799+</div>
-          <p class="price-note">Starting from</p>
-        </div>
-
-        <div class="service-card fade-in">
-          <div class="service-icon">👕</div>
-          <h3>T-Shirt Print</h3>
-          <p>Creative t-shirt designs for brands and events</p>
-          <div class="price">₹1,999+</div>
-          <p class="price-note">Starting from</p>
-        </div>
-
-        <div class="service-card fade-in">
-          <div class="service-icon">📲</div>
-          <h3>Social Media Creatives</h3>
-          <p>Engaging posts and stories for all social platforms</p>
-          <div class="price">₹2,499+</div>
-          <p class="price-note">Per post package</p>
-        </div>
+      <div class="services-grid" id="servicesGrid">
+        <!-- Services will be injected via JavaScript -->
       </div>
     </section>
 
@@ -1226,62 +204,12 @@
       <h2 class="section-title">Our <span>Portfolio</span></h2>
       <p class="section-subtitle">Showcasing Our Best Creative Work</p>
 
-      <div class="filter-buttons">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="logo">Logos</button>
-        <button class="filter-btn" data-filter="branding">Branding</button>
-        <button class="filter-btn" data-filter="print">Print Design</button>
-        <button class="filter-btn" data-filter="social">Social Media</button>
+      <div class="filter-buttons" id="filterButtons">
+        <!-- Filter buttons will be injected via JavaScript -->
       </div>
 
-      <div class="portfolio-grid">
-        <div class="portfolio-item fade-in" data-category="logo">
-          <div class="portfolio-img">🎯</div>
-          <div class="portfolio-overlay">
-            <h3>Brand Logo Design</h3>
-            <p>Modern minimalist logo for tech startup</p>
-          </div>
-        </div>
-
-        <div class="portfolio-item fade-in" data-category="branding">
-          <div class="portfolio-img">📖</div>
-          <div class="portfolio-overlay">
-            <h3>Corporate Brochure</h3>
-            <p>Elegant tri-fold brochure for real estate company</p>
-          </div>
-        </div>
-
-        <div class="portfolio-item fade-in" data-category="print">
-          <div class="portfolio-img">💳</div>
-          <div class="portfolio-overlay">
-            <h3>Business Cards</h3>
-            <p>Premium business card design with gold foiling</p>
-          </div>
-        </div>
-
-        <div class="portfolio-item fade-in" data-category="social">
-          <div class="portfolio-img">📱</div>
-          <div class="portfolio-overlay">
-            <h3>Instagram Campaign</h3>
-            <p>Social media post series for fashion brand</p>
-          </div>
-        </div>
-
-        <div class="portfolio-item fade-in" data-category="logo">
-          <div class="portfolio-img">🌟</div>
-          <div class="portfolio-overlay">
-            <h3>Restaurant Logo</h3>
-            <p>Vibrant logo design for modern cafe</p>
-          </div>
-        </div>
-
-        <div class="portfolio-item fade-in" data-category="print">
-          <div class="portfolio-img">👕</div>
-          <div class="portfolio-overlay">
-            <h3>T-Shirt Design</h3>
-            <p>Custom apparel design for music festival</p>
-          </div>
-        </div>
+      <div class="portfolio-grid" id="portfolioGrid">
+        <!-- Portfolio items will be injected via JavaScript -->
       </div>
     </section>
 
@@ -1290,102 +218,8 @@
       <h2 class="section-title">Client <span>Reviews</span></h2>
       <p class="section-subtitle">What Our Happy Clients Say About Us</p>
 
-      <div class="testimonials-container">
-        <div class="testimonial-card fade-in">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">
-            "Pixxel Graphicss transformed our brand identity completely! The
-            logo design exceeded our expectations and truly captures our vision.
-            Highly professional and creative team!"
-          </p>
-          <div class="client-info">
-            <div class="client-avatar">RS</div>
-            <div class="client-details">
-              <h4>Rajesh Sharma</h4>
-              <p>CEO, TechVision Solutions</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="testimonial-card fade-in">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">
-            "Amazing work on our social media creatives! Our engagement
-            increased by 300% after using their designs. Fast turnaround and
-            excellent communication throughout."
-          </p>
-          <div class="client-info">
-            <div class="client-avatar">PM</div>
-            <div class="client-details">
-              <h4>Priya Malhotra</h4>
-              <p>Marketing Head, Fashion Hub</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="testimonial-card fade-in">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">
-            "The brochure design was stunning! They understood our brand
-            perfectly and delivered a masterpiece. Will definitely work with
-            them again for future projects."
-          </p>
-          <div class="client-info">
-            <div class="client-avatar">AK</div>
-            <div class="client-details">
-              <h4>Amit Kumar</h4>
-              <p>Owner, Urban Spaces</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="testimonial-card fade-in">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">
-            "Incredible attention to detail! Our business cards look absolutely
-            premium. The team was very patient with revisions and delivered
-            exactly what we wanted."
-          </p>
-          <div class="client-info">
-            <div class="client-avatar">SK</div>
-            <div class="client-details">
-              <h4>Sneha Kapoor</h4>
-              <p>Founder, Wellness Studio</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="testimonial-card fade-in">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">
-            "Best graphic design agency in town! Their creativity knows no
-            bounds. From logo to packaging, everything was perfect. Great value
-            for money!"
-          </p>
-          <div class="client-info">
-            <div class="client-avatar">VJ</div>
-            <div class="client-details">
-              <h4>Vikram Joshi</h4>
-              <p>Director, Organic Foods Co.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="testimonial-card fade-in">
-          <div class="stars">★★★★★</div>
-          <p class="testimonial-text">
-            "Professional, creative, and punctual! They designed our entire
-            event material including standees and pamphlets. Everything looked
-            cohesive and stunning!"
-          </p>
-          <div class="client-info">
-            <div class="client-avatar">NR</div>
-            <div class="client-details">
-              <h4>Neha Reddy</h4>
-              <p>Event Manager, Celebrations Inc.</p>
-            </div>
-          </div>
-        </div>
+      <div class="testimonials-container" id="testimonialsContainer">
+        <!-- Testimonials will be injected via JavaScript -->
       </div>
     </section>
 
@@ -1395,14 +229,16 @@
       <p class="section-subtitle">Let's Bring Your Creative Vision to Life</p>
 
       <div class="contact-container fade-in">
-        <form id="contactForm">
+        <form id="contactForm" name="contact" method="POST" data-netlify="true">
           <div class="form-group">
             <label for="name">Your Name</label>
             <input
               type="text"
               id="name"
+              name="name"
               required
               placeholder="Enter your full name"
+              aria-required="true"
             />
           </div>
           <div class="form-group">
@@ -1410,8 +246,10 @@
             <input
               type="email"
               id="email"
+              name="email"
               required
               placeholder="your@email.com"
+              aria-required="true"
             />
           </div>
           <div class="form-group">
@@ -1419,34 +257,26 @@
             <input
               type="tel"
               id="phone"
+              name="phone"
               required
               placeholder="+91 XXXXX XXXXX"
+              aria-required="true"
             />
           </div>
           <div class="form-group">
             <label for="service">Select Service</label>
-            <select id="service" required>
-              <option value="">Choose a service</option>
-              <option value="logo">Logo Design</option>
-              <option value="letterhead">Letterhead Design</option>
-              <option value="brochure">Brochure Design</option>
-              <option value="standee">Standee Design</option>
-              <option value="bookplate">Bookplate Design</option>
-              <option value="pamphlet">Pamphlet Design</option>
-              <option value="app">Application Templates</option>
-              <option value="certificate">Certificate Design</option>
-              <option value="bag">Bag Design</option>
-              <option value="card">Business Card</option>
-              <option value="tshirt">T-Shirt Print</option>
-              <option value="social">Social Media Creatives</option>
+            <select id="service" name="service" required aria-required="true">
+              <!-- Service options will be injected via JavaScript -->
             </select>
           </div>
           <div class="form-group">
             <label for="message">Project Details</label>
             <textarea
               id="message"
+              name="message"
               required
               placeholder="Tell us about your project requirements..."
+              aria-required="true"
             ></textarea>
           </div>
           <button type="submit" class="btn btn-primary" style="width: 100%">
@@ -1459,152 +289,19 @@
     <!-- Footer -->
     <footer>
       <div class="footer-content">
-        <div class="social-links">
-          <a href="#" class="social-icon">📧</a>
-          <a href="#" class="social-icon">📱</a>
-          <a href="#" class="social-icon">💼</a>
-          <a href="#" class="social-icon">📷</a>
+        <div class="social-links" id="socialLinks">
+          <!-- Social links will be injected via JavaScript -->
         </div>
         <p class="footer-text">
-          &copy; 2025 Pixxel Graphicss. All Rights Reserved. | Crafted with
+          &copy; 2025 Pixxel Graphic. All Rights Reserved. | Crafted with
           Creativity ✨
         </p>
       </div>
     </footer>
 
-    <script>
-      // Hamburger Menu Toggle
-      const hamburger = document.getElementById("hamburger");
-      const navLinks = document.getElementById("navLinks");
-      const overlay = document.getElementById("overlay");
-      const navItems = document.querySelectorAll(".nav-links a");
-
-      hamburger.addEventListener("click", () => {
-        hamburger.classList.toggle("active");
-        navLinks.classList.toggle("active");
-        overlay.classList.toggle("active");
-        document.body.style.overflow = navLinks.classList.contains("active")
-          ? "hidden"
-          : "auto";
-      });
-
-      // Close menu when clicking overlay
-      overlay.addEventListener("click", () => {
-        hamburger.classList.remove("active");
-        navLinks.classList.remove("active");
-        overlay.classList.remove("active");
-        document.body.style.overflow = "auto";
-      });
-
-      // Close menu when clicking nav item
-      navItems.forEach((item) => {
-        item.addEventListener("click", () => {
-          hamburger.classList.remove("active");
-          navLinks.classList.remove("active");
-          overlay.classList.remove("active");
-          document.body.style.overflow = "auto";
-        });
-      });
-
-      // Smooth Scrolling
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
-          e.preventDefault();
-          const target = document.querySelector(this.getAttribute("href"));
-          if (target) {
-            target.scrollIntoView({ behavior: "smooth", block: "start" });
-          }
-        });
-      });
-
-      // Scroll Animation Observer
-      const observerOptions = {
-        threshold: 0.1,
-        rootMargin: "0px 0px -100px 0px",
-      };
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-          }
-        });
-      }, observerOptions);
-
-      document
-        .querySelectorAll(".fade-in")
-        .forEach((el) => observer.observe(el));
-
-      // Portfolio Filter
-      const filterBtns = document.querySelectorAll(".filter-btn");
-      const portfolioItems = document.querySelectorAll(".portfolio-item");
-
-      filterBtns.forEach((btn) => {
-        btn.addEventListener("click", () => {
-          filterBtns.forEach((b) => b.classList.remove("active"));
-          btn.classList.add("active");
-
-          const filter = btn.getAttribute("data-filter");
-
-          portfolioItems.forEach((item) => {
-            if (
-              filter === "all" ||
-              item.getAttribute("data-category") === filter
-            ) {
-              item.style.display = "block";
-              setTimeout(() => {
-                item.style.opacity = "1";
-                item.style.transform = "translateY(0)";
-              }, 100);
-            } else {
-              item.style.opacity = "0";
-              item.style.transform = "translateY(20px)";
-              setTimeout(() => {
-                item.style.display = "none";
-              }, 300);
-            }
-          });
-        });
-      });
-
-      // Form Submission
-      document.getElementById("contactForm").addEventListener("submit", (e) => {
-        e.preventDefault();
-        alert("Thank you for your message! We will get back to you soon. 🎨");
-        e.target.reset();
-      });
-
-      // Navbar Scroll Effect
-      let lastScroll = 0;
-      const nav = document.querySelector("nav");
-
-      window.addEventListener("scroll", () => {
-        const currentScroll = window.pageYOffset;
-
-        if (currentScroll > 100) {
-          nav.style.padding = "0.8rem 6%";
-          nav.style.boxShadow = "0 8px 40px rgba(0, 0, 0, 0.5)";
-        } else {
-          nav.style.padding = "1.2rem 6%";
-          nav.style.boxShadow = "0 4px 30px rgba(0, 0, 0, 0.3)";
-        }
-
-        lastScroll = currentScroll;
-      });
-
-      // Add dynamic particle effect on mouse move
-      document.addEventListener("mousemove", (e) => {
-        const shapes = document.querySelectorAll(".bg-shape");
-        const x = e.clientX / window.innerWidth;
-        const y = e.clientY / window.innerHeight;
-
-        shapes.forEach((shape, index) => {
-          const speed = (index + 1) * 20;
-          const newX = x * speed;
-          const newY = y * speed;
-          shape.style.transform = `translate(${newX}px, ${newY}px)`;
-        });
-      });
-    </script>
+    <!-- JavaScript Files -->
+    <script src="js/data.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/app.js"></script>
   </body>
 </html>
