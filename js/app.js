@@ -119,6 +119,7 @@ class PixxelGraphicssApp {
     this.initPortfolioFilter();
     this.initContactForm();
     this.initNavbarScroll();
+    this.initScrollToTop();
   }
 
   /**
@@ -253,6 +254,32 @@ class PixxelGraphicssApp {
       }
 
       lastScroll = currentScroll;
+    });
+  }
+
+  /**
+   * Initialize Scroll to Top Button
+   */
+  initScrollToTop() {
+    const scrollButton = document.getElementById("scrollToTop");
+
+    if (!scrollButton) return;
+
+    // Show/hide button based on scroll position
+    window.addEventListener("scroll", () => {
+      if (window.pageYOffset > 300) {
+        scrollButton.classList.add("visible");
+      } else {
+        scrollButton.classList.remove("visible");
+      }
+    });
+
+    // Scroll to top on click
+    scrollButton.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
     });
   }
 
