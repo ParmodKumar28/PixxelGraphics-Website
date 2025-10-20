@@ -8,20 +8,20 @@ Welcome to the Pixxel Graphicss website repository — a sleek, modern, and full
 
 pixxel-graphicss/
 │
-├── index.html # Main HTML with SEO metadata and full structure
+├── index.html              # Main HTML with SEO metadata and full structure
 │
 ├── css/
-│ ├── styles.css # Primary styles: colors, typography, layout, buttons
-│ ├── animations.css # CSS animations & keyframes
-│ └── responsive.css # Responsive media queries for different screen sizes
+│   ├── styles.css          # Primary styles: colors, typography, layout, buttons
+│   ├── animations.css      # CSS animations & keyframes
+│   └── responsive.css      # Responsive media queries for different screen sizes
 │
 ├── js/
-│ ├── data.js # ⭐ All site content: company, services, portfolio, testimonials, about, social links
-│ ├── components.js # HTML template functions for reusable UI components
-│ └── app.js # Main logic: renders content, handles events like menu toggle and form submission
+│   ├── data.js             # ⭐ All site content: company, services, portfolio, testimonials, about, social links
+│   ├── components.js       # HTML template functions for reusable UI components
+│   └── app.js              # Main logic: renders content, handles events like menu toggle and form submission
 │
 └── assets/
-└── images/ # Logos, portfolio images, icons, favicon, etc.
+    └── images/             # Logos, portfolio images, icons, favicon, etc.
 
 ---
 
