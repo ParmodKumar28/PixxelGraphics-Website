@@ -300,6 +300,10 @@
     height: 45px;
     font-size: 1.3rem;
   }
+
+  .developer-details{
+    font-size: 0.9rem;
+  }
 }
 
 @media (max-width: 480px) {
