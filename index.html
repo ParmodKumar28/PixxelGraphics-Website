@@ -99,6 +99,12 @@
     <!-- Preconnect for Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+
+    <!-- Font Awesome CDN link (latest version 6.x) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
   </head>
   <body>
     <!-- Overlay for mobile menu -->
@@ -289,7 +295,7 @@
     <!-- Footer -->
     <footer>
       <div class="footer-content">
-        <div class="social-links" id="socialLinks">
+        <div class="social-links" id="socialLinks" dangerously-set-inner-html>
           <!-- Social links will be injected via JavaScript -->
         </div>
         <p class="footer-text">
@@ -299,9 +305,9 @@
       </div>
     </footer>
 
-       <!-- Scroll to Top Button -->
+    <!-- Scroll to Top Button -->
     <button id="scrollToTop" class="scroll-to-top" aria-label="Scroll to top">
-        <span>↑</span>
+      <span>↑</span>
     </button>
 
     <!-- JavaScript Files -->

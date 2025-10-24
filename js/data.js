@@ -6,13 +6,13 @@
 const WEBSITE_DATA = {
   // Company Information
   company: {
-    name: "Pixxel Graphicss",
+    name: "Pixxel Graphics",
     tagline: "Creative Design Solutions",
     description:
       "Transform Your Brand with Professional Graphic Design Services",
     email: "info@pixxelgraphicss.com",
-    phone: "+91 98765 43210",
-    address: "Mumbai, India",
+    phone: "+91 8295636153",
+    address: "Rewari Haryana, India",
     website: "https://www.pixxelgraphicss.com",
   },
 
@@ -307,15 +307,23 @@ const WEBSITE_DATA = {
 
   // Social Media Links
   socialLinks: [
-    { icon: "📧", href: "mailto:info@pixxelgraphicss.com", label: "Email" },
-    { icon: "📱", href: "https://wa.me/919876543210", label: "WhatsApp" },
     {
-      icon: "💼",
+      icon: `<i class="fa-solid fa-envelope"></i>`,
+      href: "mailto:info@pixxelgraphicss.com",
+      label: "Email",
+    },
+    {
+      icon: `<i class="fa-brands fa-whatsapp"></i>`,
+      href: "https://wa.me/919876543210",
+      label: "WhatsApp",
+    },
+    {
+      icon: `<i class="fa-brands fa-linkedin"></i>`,
       href: "https://linkedin.com/company/pixxelgraphicss",
       label: "LinkedIn",
     },
     {
-      icon: "📷",
+      icon: `<i class="fa-brands fa-instagram"></i>`,
       href: "https://instagram.com/pixxelgraphicss",
       label: "Instagram",
     },
